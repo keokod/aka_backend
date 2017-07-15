@@ -21,9 +21,7 @@ class UserController extends Controller
     public function getUser() 
     {
         $sql="select * from user";
-
         $results = app('db')->select($sql);
-
         return json_encode($results);
     }
 
@@ -50,7 +48,13 @@ class UserController extends Controller
 
         $results = app('db')->select($sql);
         return json_encode($results);     
+ 
+    }
 
+    public function getFicheSujet($id){ //on récupérer la fiche sujet le titre et la question 
+        $sql ="call getTopic($id);";
+        $results = app('db')->select($sql);
+        return json_encode($results); 
     }
 
     public function getTopic($id){

@@ -18,3 +18,6 @@ $app->get('/', function () use ($app) {
 
 $app->get('/liste_membre','UserController@getUser');
 $app->get('/profilMembre/{id}','UserController@getMembre');
+
+$app->get('/liste_sujet','UserController@getListeSujet');
+$app->get('/topic/{id}','UserController@getTopic');

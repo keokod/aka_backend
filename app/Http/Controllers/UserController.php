@@ -41,4 +41,33 @@ class UserController extends Controller
         return json_encode($results);
     }
 
+    public function getListeSujet(){
+
+        $sql = "SELECT post.post_id as id, post.sujet as sujet, user.pseudo as pseudo
+        FROM  `post` 
+        LEFT JOIN `user`
+        ON post.user_id = user.user_id";
+
+        $results = app('db')->select($sql);
+        return json_encode($results);     
+
+    }
+
+    public function getTopic($id){
+
+        $sql = "SELECT post.post_id as id_post, post.user_id as id_user, post.sujet as sujet,
+        post.resolu as resolu, post.description as description, post.date_post,
+        reponse.reponse_id as id_reponse, reponse.reponse, reponse.user_id as id_user_reponse , 
+        reponse.date_reponse as date_reponse,user.pseudo as pseudo
+        FROM `post` 
+        LEFT JOIN `reponse`
+        ON  post.post_id = reponse.post_id
+        LEFT JOIN `user`
+        ON reponse.user_id = user.user_id
+        WHERE post.post_id = $id";
+
+        $results = app('db')->select($sql);
+        return json_encode($results);  
+    }
+
 }

@@ -26,7 +26,7 @@ CREATE TABLE `competences` (
   `competence_id` int(10) NOT NULL AUTO_INCREMENT,
   `nom` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`competence_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,6 +35,7 @@ CREATE TABLE `competences` (
 
 LOCK TABLES `competences` WRITE;
 /*!40000 ALTER TABLE `competences` DISABLE KEYS */;
+INSERT INTO `competences` VALUES (1,'PHP'),(2,'JAVASCRIPT'),(3,'symfony'),(4,'angular');
 /*!40000 ALTER TABLE `competences` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,7 +56,7 @@ CREATE TABLE `post` (
   PRIMARY KEY (`post_id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `post_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,6 +65,7 @@ CREATE TABLE `post` (
 
 LOCK TABLES `post` WRITE;
 /*!40000 ALTER TABLE `post` DISABLE KEYS */;
+INSERT INTO `post` VALUES (1,1,'quel est la différence entre le simple et le double quote ?',NULL,NULL,'2017-07-14 16:03:33'),(2,2,'le MVC es t\'il un design patterne ?',NULL,NULL,'2017-07-15 00:00:00');
 /*!40000 ALTER TABLE `post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,7 +87,7 @@ CREATE TABLE `reponse` (
   KEY `user_id` (`user_id`),
   CONSTRAINT `reponse_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`post_id`),
   CONSTRAINT `reponse_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,6 +96,7 @@ CREATE TABLE `reponse` (
 
 LOCK TABLES `reponse` WRITE;
 /*!40000 ALTER TABLE `reponse` DISABLE KEYS */;
+INSERT INTO `reponse` VALUES (1,'Pour spécifier un guillemet simple littéral, vous devrez l\'échapper à l\'aide d\'un antislash (\\). Pour spécifier un antislash littéral, doublez-le (\\\\). Notez que si vous tentez d\'échapper n\'importe quel autre caractère, l\'antislash s\'affichera, ce qui signifie que les autres séquences auquelles vous êtes éventuellement habitués (comme \\r ou \\n) s\'afficheront telles quelles, sans avoir une quelconque signification particulière. ',3,1,'2017-07-15 00:00:00'),(2,'merci beaucoup Picsou :)',1,1,'2017-07-14 00:00:00');
 /*!40000 ALTER TABLE `reponse` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,8 +140,9 @@ CREATE TABLE `user` (
   `pseudo` varchar(100) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `mdp` varchar(255) DEFAULT NULL,
+  `avatar` text NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,7 +151,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'fifi','fifi@gmail.com','0000'),(2,'riri','riri@gmail.com','0000');
+INSERT INTO `user` VALUES (1,'fifi','fifi@gmail.com','0000','fifi.jpg'),(2,'riri','riri@gmail.com','0000','riri.jpg'),(3,'picsou','picsou@free.fr','0000','picsou.jpg');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,7 +171,7 @@ CREATE TABLE `userCompetence` (
   KEY `fk_userCompetence_2_idx` (`user_id`),
   CONSTRAINT `fk_userCompetence_1` FOREIGN KEY (`competence_id`) REFERENCES `competences` (`competence_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_userCompetence_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,6 +180,7 @@ CREATE TABLE `userCompetence` (
 
 LOCK TABLES `userCompetence` WRITE;
 /*!40000 ALTER TABLE `userCompetence` DISABLE KEYS */;
+INSERT INTO `userCompetence` VALUES (1,1,2),(2,2,4);
 /*!40000 ALTER TABLE `userCompetence` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -188,4 +193,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-09 10:22:19
+-- Dump completed on 2017-07-15  8:51:20

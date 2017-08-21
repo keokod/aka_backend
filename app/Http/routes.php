@@ -43,6 +43,18 @@ $app->group(['prefix' => 'forum','namespace' => 'App\Http\Controllers'], functio
 });
 
 
+$app->group(['prefix' => 'forum','namespace' => 'App\Http\Controllers'], function($app)
+{
+    $app->get('usercompetence','UserCompetenceController@index');
+
+    $app->get('usercompetence/{id}','UserCompetenceController@getUserCompetence');
+
+    $app->post('usercompetence','UserCompetenceController@createUserCompetence');
+
+    $app->put('usercompetence/{id}','CompetenceController@updateUserCompetence');
+
+    $app->delete('usercompetence/{id}','CompetenceController@deleteUserCompetence');
+});
 
 $app->group(['prefix' => 'api/v1','namespace' => 'App\Http\Controllers'], function($app)
 {

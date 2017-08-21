@@ -56,6 +56,22 @@ $app->group(['prefix' => 'forum','namespace' => 'App\Http\Controllers'], functio
     $app->delete('usercompetence/{id}','CompetenceController@deleteUserCompetence');
 });
 
+
+
+$app->group(['prefix' => 'forum','namespace' => 'App\Http\Controllers'], function($app)
+{
+    $app->get('statistique','StatistiqueController@index');
+
+    $app->get('statistique/{id}','StatistiqueController@getStatistique');
+
+    $app->post('statistique','StatistiqueController@createStatistique');
+
+    $app->put('statistique/{id}','StatistiqueController@updateStatistique');
+
+    $app->delete('statistique/{id}','StatistiqueController@deleteStatistique');
+});
+
+
 $app->group(['prefix' => 'api/v1','namespace' => 'App\Http\Controllers'], function($app)
 {
 	$app->post('car','CarController@createCar');

@@ -26,7 +26,6 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 */
-$app->get('user','UserController@index');
 
 $app->group(['prefix' => 'forum','namespace' => 'App\Http\Controllers'], function($app)
 {

@@ -13,6 +13,7 @@ class UserCompetences extends Migration
     public function up()
     {
       Schema::create('user_competences', function (Blueprint $table) {
+              $table->engine = 'InnoDB';
               $table->increments('id_user_competence');
               $table->integer('id_user')->unsigned();
               $table->foreign('id_user')

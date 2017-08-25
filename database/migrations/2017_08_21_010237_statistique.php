@@ -13,6 +13,7 @@ class Statistique extends Migration
     public function up()
     {
       Schema::create('statistiques', function (Blueprint $table) {
+        $table->engine = 'InnoDB';
         $table->increments('id_stat');
         $table->integer('id_user')->unsigned();
         $table->foreign('id_user')
@@ -24,7 +25,7 @@ class Statistique extends Migration
 
       });
     }
-  
+
     /**
      * Reverse the migrations.
      *

@@ -13,6 +13,7 @@ class Competences extends Migration
     public function up()
     {
       Schema::create('competences', function (Blueprint $table) {
+              $table->engine = 'InnoDB';
               $table->increments('id_competence');
               $table->string('nom_competence');
               });

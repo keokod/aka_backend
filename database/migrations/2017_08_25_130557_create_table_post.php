@@ -14,6 +14,7 @@ class CreateTablePost extends Migration
      public function up()
      {
        Schema::create('posts', function (Blueprint $table) {
+         $table->engine = 'InnoDB';
          $table->increments('id_post');
          $table->integer('id_user')->unsigned();
          $table->foreign('id_user')

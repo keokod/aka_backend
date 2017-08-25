@@ -14,6 +14,7 @@ class CreateTableReponse extends Migration
      public function up()
      {
        Schema::create('reponses', function (Blueprint $table) {
+         $table->engine = 'InnoDB';
          $table->increments('id_reponse');
          $table->string('reponse');
          $table->integer('id_user')->unsigned();

@@ -12,7 +12,7 @@ class UserCompetences extends Migration
      */
     public function up()
     {
-      Schema::create('userCompetences', function (Blueprint $table) {
+      Schema::create('user_competences', function (Blueprint $table) {
               $table->increments('id_user_competence');
               $table->integer('id_user')->unsigned();
               $table->foreign('id_user')
@@ -33,6 +33,6 @@ class UserCompetences extends Migration
      */
     public function down()
     {
-        Schema::drop('userCompetences');
+        Schema::drop('user_competences');
     }
 }

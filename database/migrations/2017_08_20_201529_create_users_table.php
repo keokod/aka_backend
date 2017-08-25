@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
           $table->string('pseudo');
           $table->string('email');
           $table->string('mdp');
+          $table->string('avatar');
         });
     }
 

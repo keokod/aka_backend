@@ -93,8 +93,8 @@ $app->singleton(
 |
 */
 
-$app->group(['namespace' => 'App\Http\Controllers'], function ($app) {
-    require __DIR__.'/../app/Http/routes.php';
+$app->group(['' => 'App\Http\Controllers'], function ($app) {
+    require __DIR__.'/../routes/web.php';
 });
 
 return $app;

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Statistique;
+use App\Models\Statistique;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 

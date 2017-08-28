@@ -1,17 +1,9 @@
 <?php
-
-use App\Models;
+namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model {
-
-    protected $table = ‘users’;
-
-    protected $fillable = [
-      ‘pseudo’,
-      ‘email’,
-      ‘mdp’
-    ];
-
-
+    protected $fillable = ['pseudo','email','mdp','avatar'];
+    protected $primaryKey = 'id_user';
 }
+?>

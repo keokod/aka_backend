@@ -15,17 +15,7 @@ $app->get('/', function () use ($app) {
    return $app->version();
 });
 
-/*
-$app->get('/liste_membre','UserController@getUser');
-$app->get('/profilMembre/{id}','UserController@getMembre');
 
-$app->get('/liste_sujet','UserController@getListeSujet');
-$app->get('/sujet/{id}','UserController@getFicheSujet');
-$app->get('/topic/{id}','UserController@getTopic');
-$app->get('/', function () use ($app) {
-    return $app->version();
-});
-*/
 
 $app->group(['prefix' => 'forum','namespace' => 'App\Http\Controllers'], function($app)
 {
@@ -35,7 +25,7 @@ $app->group(['prefix' => 'forum','namespace' => 'App\Http\Controllers'], functio
     $app->put('user/{id}','UserController@updateUser');
     $app->delete('user/{id}','UserController@deleteUser');
 });
-/*
+
 $app->group(['prefix' => 'forum','namespace' => 'App\Http\Controllers'], function($app)
 {
     $app->get('competence','CompetenceController@index');
@@ -60,11 +50,3 @@ $app->group(['prefix' => 'forum','namespace' => 'App\Http\Controllers'], functio
     $app->put('statistique/{id}','StatistiqueController@updateStatistique');
     $app->delete('statistique/{id}','StatistiqueController@deleteStatistique');
 });
-$app->group(['prefix' => 'api/v1','namespace' => 'App\Http\Controllers'], function($app)
-{
-	$app->post('car','CarController@createCar');
-	$app->put('car/{id}','CarController@updateCar');
-	$app->delete('car/{id}','CarController@deleteCar');
-	$app->get('car','CarController@index');
-});
-*/

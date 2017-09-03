@@ -15,7 +15,7 @@ $app->get('/', function () use ($app) {
    return $app->version();
 });
 
-
+//un exemple d'url http://192.168.33.10:8000/forum/liste_membre
 
 $app->group(['prefix' => 'forum','namespace' => 'App\Http\Controllers'], function($app)
 {

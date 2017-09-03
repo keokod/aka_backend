@@ -28,6 +28,12 @@ $app->group(['prefix' => 'forum','namespace' => 'App\Http\Controllers'], functio
 
 $app->group(['prefix' => 'forum','namespace' => 'App\Http\Controllers'], function($app)
 {
+    $app->get('/liste_post','PostController@index');
+});
+
+
+$app->group(['prefix' => 'forum','namespace' => 'App\Http\Controllers'], function($app)
+{
     $app->get('competence','CompetenceController@index');
     $app->get('competence/{id}','CompetenceController@getCompetence');
     $app->post('competence','CompetenceController@createCompetence');
